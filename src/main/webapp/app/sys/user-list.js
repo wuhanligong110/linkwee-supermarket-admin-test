@@ -164,6 +164,7 @@ function searchByCondition(page,rows,condition){
 	  url += "&"+condition;
   }
   $.getJSON(url,function(result){
+  	console.log(result);
     $("#totalCount").text(result.totalCount);
     $("#totalPageCount").text(result.totalPages);
 

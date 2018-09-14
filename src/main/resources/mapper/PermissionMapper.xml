@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.linkwee.web.dao.PermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.linkwee.web.model.Permission" >
+<mapper namespace="com.finance.web.dao.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.finance.web.model.Permission" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
     <result column="permission_sign" property="permissionSign" jdbcType="VARCHAR" />
@@ -42,13 +42,13 @@
     delete from tsys_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.linkwee.web.model.Permission" >
+  <insert id="insert" parameterType="com.finance.web.model.Permission" >
     insert into tsys_permission (id, permission_name, permission_sign, 
       permission_category,description)
     values (#{id,jdbcType=INTEGER}, #{permissionName,jdbcType=VARCHAR}, #{permissionSign,jdbcType=VARCHAR}, #{permissionCategory,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.linkwee.web.model.Permission" >
+  <insert id="insertSelective" parameterType="com.finance.web.model.Permission" >
     insert into tsys_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -85,7 +85,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.linkwee.web.model.Permission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.finance.web.model.Permission" >
     update tsys_permission
     <set >
       <if test="permissionName != null" >
@@ -103,7 +103,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.linkwee.web.model.Permission" >
+  <update id="updateByPrimaryKey" parameterType="com.finance.web.model.Permission" >
     update tsys_permission
     set permission_name = #{permissionName,jdbcType=VARCHAR},
       permission_sign = #{permissionSign,jdbcType=VARCHAR},
@@ -112,9 +112,9 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <!-- 通过角色id 查询角色 拥有的权限 -->
-    <select id="selectPermissionsByRoleId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectPermissionsByRoleId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT p.* FROM tsys_permission p LEFT JOIN tsys_role_permission rp ON rp.permission_id = p.id
-        WHERE rp.role_id =#{id,jdbcType=BIGINT} order by permission_category
+        WHERE rp.role_id =#{id} order by permission_category
     </select>
   <!-- 删除角色的权限 -->
   <delete id="deleteRolePermissionsByRoleid" parameterType="java.lang.Integer" >

@@ -54,8 +54,8 @@
     </settings>
 
     <typeAliases>
-        <package name="com.linkwee.web.model"/>
-        <package name="com.linkwee.web.enums"/>
+        <package name="com.finance.web.model"/>
+        <package name="com.finance.web.enums"/>
     </typeAliases>
 
 </configuration>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.linkwee.web.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.linkwee.web.model.User" >
+<mapper namespace="com.finance.web.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.finance.web.model.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="CHAR" />
@@ -22,7 +22,7 @@
     delete from tsys_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.linkwee.web.model.User" >
+  <insert id="insert" parameterType="com.finance.web.model.User" >
     insert into tsys_user (id, username, password, 
       state, create_time, description
       )
@@ -30,7 +30,7 @@
       #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.linkwee.web.model.User" >
+  <insert id="insertSelective" parameterType="com.finance.web.model.User" >
     insert into tsys_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.linkwee.web.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.finance.web.model.User" >
     update tsys_user
     <set >
       <if test="username != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.linkwee.web.model.User" >
+  <update id="updateByPrimaryKey" parameterType="com.finance.web.model.User" >
     update tsys_user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=CHAR},
