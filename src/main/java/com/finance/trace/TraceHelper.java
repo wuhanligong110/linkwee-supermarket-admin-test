@@ -19,7 +19,7 @@ public class TraceHelper {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(TraceHelper.class);
 
-	@Around("execution(* com.linkwee.act.*.service..*(..)) || execution(* com.linkwee.tc.*.service..*(..)) || execution(* com.linkwee.web.service..*(..))")
+	@Around("execution(* com.finance.act.*.service..*(..)) || execution(* com.finance.tc.*.service..*(..)) || execution(* com.finance.web.service..*(..))")
 	public Object around(ProceedingJoinPoint pjp) throws Throwable{
 			Span parentSpan =Tracer.getParentSpan();
 	        if(parentSpan == null  ){
