@@ -37,7 +37,7 @@
 
         <dependency>
             <groupId>com.finance</groupId>
-            <artifactId>finance-framework</artifactId>
+            <artifactId>finance-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -156,9 +156,21 @@
             <version>1.4.5.RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.netflix.feign/feign-httpclient -->
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>8.18.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.finance</groupId>
+            <artifactId>finance-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
