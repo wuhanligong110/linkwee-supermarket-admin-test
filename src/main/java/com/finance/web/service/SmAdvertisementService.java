@@ -1,5 +1,6 @@
 package com.finance.web.service;
 
+import com.finance.page.PageInfo;
 import com.finance.web.generic.GenericClient;
 import com.finance.web.generic.GenericClientService;
 import com.finance.web.generic.GenericServiceImpl;
@@ -41,10 +42,10 @@ public class SmAdvertisementService extends GenericClientService<SmAdvertisement
        DataTableReturn tableReturn = new DataTableReturn();
        tableReturn.setDraw(dt.getDraw()+1);
        LOGGER.debug(" -- SmAdvertisement -- 排序和模糊查询 ");
-       Page<SmAdvertisement> page = smAdvertisementClient.selectBySearchInfo(dt,dt.getStart()/dt.getLength()+1,dt.getLength());
-       tableReturn.setData(page.getResult());
-       tableReturn.setRecordsFiltered((int) page.getTotal());
-       tableReturn.setRecordsTotal((int) page.getTotal());
+       PageInfo<SmAdvertisement> pageInfo = smAdvertisementClient.selectBySearchInfo(dt);
+       tableReturn.setData(pageInfo.getDatas());
+       tableReturn.setRecordsFiltered((int) pageInfo.getTotalCount());
+       tableReturn.setRecordsTotal((int) pageInfo.getTotalCount());
        return tableReturn;
    }
 

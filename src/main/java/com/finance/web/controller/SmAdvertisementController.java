@@ -39,7 +39,7 @@ import java.util.*;
 @RequestLogging("SmAdvertisementController控制器")
 public class SmAdvertisementController {
 
-   private static final Logger LOGGER = LoggerFactory.getLogger(AdvertisementController.class);
+   private static final Logger LOGGER = LoggerFactory.getLogger(SmAdvertisementController.class);
 
    @Resource
    private SmAdvertisementService smAdvertisementService;
